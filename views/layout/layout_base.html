@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{.pageTitle}}</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {{.headercss}}
+</head>
+
+<body>
+
+    <div id="div-content">
+        {{template "layout/navbar.html"}}
+        <p style="float: right;font-weight: bold; position: fixed; top:10px;right: 10px">
+            <i class="fa fa-user fa-lg"></i>
+            {{.user}}
+            <sapan class="btn btn-info" onclick="logout()">退出</sapan>
+        </p>
+
+        {{.LayoutContent}}
+
+        <div  align="center">
+            <ul id="pageList"></ul>
+        </div>
+        {{.footerjs}}
+    </div>
+</body>
+</html>

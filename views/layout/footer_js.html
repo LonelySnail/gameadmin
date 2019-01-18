@@ -1,0 +1,45 @@
+<script src="/static/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap-paginator/build/bootstrap-paginator.min.js"></script>
+<script src="/static/js/login.js"></script>
+<script src="/static/js/navbar.js"></script>
+
+<script>
+    $(function(){
+        $("ul li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    });
+    $(function () {
+        $('#pageList').bootstrapPaginator({
+            currentPage: '{{.page.PageNo}}',
+            totalPages: '{{.page.TotalPage}}',
+            bootstrapMajorVersion: 3,
+            numberOfPages: 5,
+            size: "normal",
+            useBootstrapTooltip: true,
+            itemTexts: function (type, page, current) {//设置显示的样式，默认是箭头
+                switch (type) {
+                    case "first":
+                        return "首页";
+                    case "prev":
+                        return "上一页";
+                    case "next":
+                        return "下一页";
+                    case "last":
+                        return "末页";
+                    case "page":
+                        return page;
+                }
+            },
+            onPageClicked: function(e,originalEvent,type,page){
+                tp = ($('#navbar-default ul  .active').attr("type"));
+                if (tp != "" && tp!= undefined) {
+                    GetPageMessage(tp,page);
+                }else {
+                    alert(tp);
+                }
+            }
+        });
+    });
+</script>

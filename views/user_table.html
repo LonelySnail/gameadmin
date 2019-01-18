@@ -1,0 +1,34 @@
+<div id="user-table" style="padding-left: 10px;padding-right: 10px">
+    <div class="container">
+        <form action="#" id="searchUser">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label>姓名:</label>
+                    <input type="text" name="userName" class="form-control">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <table class="table table-bordered table-hover" style="text-align: center">
+        <thead>
+        <tr>
+            <th  class="text-center">名字</th>
+            <th  class="text-center">联系方式</th>
+            <th  class="text-center">登录时间</th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+            {{range  $inx, $user := $.users}}
+                <tr>
+                    <td>{{$user.Name}}</td>
+                    <td>{{$user.Phone}}</td>
+                    <td>{{$user.LastTime}}</td>
+                </tr>
+            {{end}}
+        </tbody>
+
+    </table>
+</div>
